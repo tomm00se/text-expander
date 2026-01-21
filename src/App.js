@@ -54,18 +54,26 @@ function TextExpander({
     setIsExpanded(!isExpanded);
   };
 
+  const buttonStyle = {
+    background: "none",
+    border: "none",
+    font: "inherit",
+    cursor: "pointer",
+    marginLeft: "4px",
+    color: buttonColor,
+  };
+
   return (
     <div className={className}>
-      <p>{isExpanded ? children : paginatedText}</p>
-      <span
-        style={{ color: buttonColor }}
-        role="pointer"
+      <span>{isExpanded ? children : paginatedText}</span>
+      <button
+        style={buttonStyle}
         onClick={(e) => {
           handleOnClick(e);
         }}
       >
         {isExpanded ? `${collapseButtonText}...` : `${expandButtonText}...`}
-      </span>
+      </button>
     </div>
   );
 }
